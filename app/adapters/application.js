@@ -1,4 +1,4 @@
-import DS from 'ember-data';
+import FixturesAdapter from 'pomotrack/adapters/fixtures';
 
-export default DS.FixtureAdapter.extend({
-});
+export default FixturesAdapter;
+
