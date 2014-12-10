@@ -16,27 +16,27 @@ module('Integration - Clock', {
 test('The clock should be disabled', function() {
   visit('/')
     .then(function() {
-      equal(pageActions.findStart().hasClass('disabled'), true);
+      ok(!!pageActions.findStart().hasClass('disabled'));
     });
 });
 test('The clock should be enabled after selecting first task', function() {
   pageActions.visitFirstTask();
   andThen(function(){
-    equal(pageActions.findStart().hasClass('disabled'), false);
+    ok(!pageActions.findStart().hasClass('disabled'));
   });
 });
 test('Start should be disabled after it was clicked', function() {
   pageActions.visitFirstTask();
   pageActions.clickStart();
   andThen(function() {
-    equal(pageActions.findStart().hasClass('disabled'), true);
+    ok(!!pageActions.findStart().hasClass('disabled'));
   });
 });
 test('Stop should be enabled after log entry was started', function() {
   pageActions.visitFirstTask();
   pageActions.clickStart();
   andThen(function() {
-    equal(pageActions.findStop().hasClass('disabled'), false);
+    ok(!pageActions.findStop().hasClass('disabled'));
   });
 });
 test('Stop should be disabled after log entry was stopped', function() {
@@ -44,7 +44,7 @@ test('Stop should be disabled after log entry was stopped', function() {
   pageActions.clickStart();
   pageActions.clickStop();
   andThen(function() {
-    equal(pageActions.findStop().hasClass('disabled'), true);
+    ok(!!pageActions.findStop().hasClass('disabled'));
   });
 });
 
